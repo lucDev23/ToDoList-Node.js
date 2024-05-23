@@ -1,0 +1,11 @@
+{
+  "name": "task-manager---node",
+  "version": "1.0.0",
+  "description": "Task manager using Node.js with express and server side render",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lucas Gonzalez",
+  "license": "ISC"
+}
