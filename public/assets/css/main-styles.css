@@ -1,0 +1,404 @@
+@import url('https://fonts.cdnfonts.com/css/open-sauce-one');
+@import url('https://fonts.cdnfonts.com/css/tajawal');
+
+:root {
+  --color-lightGrey: #d3d6cf;
+  --color-grey: #a9aca9;
+  --color-font: #2f2235;
+  --color-background3: #f8f8f3;
+  --color-lightPurple: #60495a;
+  --color-purple: #3f3244;
+}
+
+* {
+  font-family: 'Tajawal', sans-serif;
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  background-color: var(--color-lightGrey);
+  user-select: none;
+}
+
+.nav-bar {
+  height: 60px;
+  background-color: var(--color-grey);
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  padding: 5px 50px;
+  transition: padding 0.3s ease;
+}
+
+.auth-btns-container {
+  display: flex;
+  gap: 5px;
+}
+
+.btn-auth {
+  width: 100px;
+  height: 40px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  background-color: var(--color-lightPurple);
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-auth:hover {
+  background-color: var(--color-purple);
+}
+
+.btn-auth:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.separator {
+  border: none;
+  height: 2px;
+  background-color: var(--color-lightPurple);
+}
+
+main {
+  height: calc(100vh - 62px);
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+.main-section {
+  width: 1100px;
+  height: 600px;
+  position: relative;
+}
+
+.title-div {
+  width: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: top 0.3s ease;
+}
+
+.title-div > img {
+  width: 150px;
+}
+
+h1 {
+  line-height: 1.4;
+}
+
+h1 > span {
+  font-size: 80px;
+}
+
+#spLu {
+  color: var(--color-lightPurple);
+}
+
+#spDev {
+  color: var(--color-purple);
+}
+
+#spToDo {
+  color: var(--color-lightPurple);
+}
+
+#left-side-img {
+  position: absolute;
+  top: 35%;
+  animation: appearFromLeft 1s ease;
+}
+
+#left-side-img > img {
+  width: 500px;
+  position: relative;
+  top: 50%;
+}
+
+#left-side-img > p {
+  position: absolute;
+  left: 45%;
+  top: 0;
+  font-size: large;
+  color: var(--color-font);
+  font-weight: bold;
+}
+
+#right-side-img {
+  position: absolute;
+  top: 36%;
+  right: 0;
+  animation: appearFromRight 1s ease;
+}
+
+#right-side-img > img {
+  width: 500px;
+  position: relative;
+  top: 51%;
+}
+
+#right-side-img > p {
+  position: absolute;
+  right: 60%;
+  top: 0;
+  font-size: large;
+  color: var(--color-font);
+  font-weight: bold;
+}
+
+.userPanel {
+  width: 250px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 2px;
+  z-index: 1;
+  background-color: var(--color-lightPurple);
+}
+
+.userPanel-title {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  line-height: 2;
+  color: var(--color-background3);
+  font-size: 28px;
+}
+
+.userPanel-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 5px;
+}
+
+.form-btnSubmit {
+  width: 100px;
+  height: 30px;
+  background-color: var(--color-font);
+  border: none;
+  border-radius: 2px;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--color-background3);
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.form-btnSubmit:hover {
+  transform: scale(1.05);
+}
+
+.form-input {
+  width: 200px;
+  border: none;
+
+  padding: 4px;
+  background-color: var(--color-background3);
+  font-size: 16px;
+  font-weight: 600;
+  outline: none;
+}
+
+.form-input:focus {
+  transform: scale(1.05);
+  border-color: var(--color-font);
+}
+
+#pressMessage {
+  margin: 5px;
+  color: var(--color-background3);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+#errorMessage {
+  color: var(--color-background3);
+  font-size: 12px;
+  font-weight: 400;
+  display: none;
+}
+
+.passField {
+  background-color: var(--color-background3);
+  display: flex;
+  gap: 0;
+}
+
+.passIn {
+  width: 85%;
+}
+
+.passIcon {
+  background-color: var(--color-background3);
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  line-height: 2;
+  width: 15%;
+}
+
+@media screen and (max-width: 1015px) {
+  .title-div {
+    width: 450px;
+    top: 20%;
+  }
+
+  h1 > span {
+    font-size: 60px;
+  }
+
+  .title-div > img {
+    width: 100px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  #navBar {
+    padding: 5px 30px;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  #left-side-img > p {
+    opacity: 100;
+  }
+
+  #right-side-img > p {
+    opacity: 100;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  #left-side-img {
+    opacity: 0;
+  }
+
+  #right-side-img {
+    opacity: 0;
+  }
+
+  #nav-icons {
+    display: none;
+  }
+
+  #navBar {
+    justify-content: center;
+    height: 60px;
+  }
+
+  #mainContent {
+    height: 200px;
+    top: 25%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  h1 > span {
+    font-size: 40px;
+  }
+
+  #h1-checkImg > img {
+    width: 50px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .userPanel {
+    width: 100px;
+  }
+
+  .userPanel-title {
+    height: 18px;
+    font-size: 10px;
+    line-height: normal;
+  }
+
+  .userPanel-form {
+    gap: 2px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 0.5px;
+  }
+
+  .form-btnSubmit {
+    width: 30px;
+    height: 10px;
+    font-size: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .form-btnSubmit:hover {
+    transform: scale(1.05);
+  }
+
+  .form-input {
+    width: 80px;
+    padding: 1px;
+    font-size: 8px;
+  }
+
+  #pressMessage {
+    margin-bottom: 2px;
+    color: var(--color-background3);
+    font-size: 4px;
+  }
+
+  #errorMessage {
+    font-size: 6px;
+  }
+}
+
+.hidden {
+  opacity: 0;
+}
+
+@keyframes appearFromLeft {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes appearFromRight {
+  0% {
+    right: -100%;
+  }
+
+  100% {
+    right: 0;
+  }
+}

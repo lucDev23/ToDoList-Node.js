@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/assets/css/user-styles.css" />
+    <script
+      src="https://kit.fontawesome.com/de28e9df45.js"
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="/assets/js/user-script.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav id="nav-bar">
+        <div id="div-menu" class="div-btn-icon">
+          <button id="btn-menu" class="btn-transparent">
+            <i class="fa-solid fa-bars nav-icon"></i>
+          </button>
+        </div>
+        <div id="div-h1">
+          <h1>
+            <span class="resizable-txt">Lu</span
+            ><!--  
+        --><span class="resizable-txt">Dev</span>
+            <span class="resizable-txt">to</span>
+            <span class="resizable-txt">do</span>
+          </h1>
+        </div>
+        <div id="div-user" class="div-btn-icon">
+          <button id="btn-user" class="btn-transparent">
+            <i class="fa-solid fa-user nav-icon"></i>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <aside id="menu-aside" class="appearFromLeft">
+        <ul id="menu-options">
+          <li class="menu-item">
+            <button id="btn-my_day" class="btn-menu-option">
+              <i class="fa-regular fa-sun menu-icon"></i>
+              <p>My day</p>
+            </button>
+          </li>
+          <li class="menu-item">
+            <button id="btn-important" class="btn-menu-option">
+              <i class="fa-regular fa-star menu-icon"></i>
+              <p>Important</p>
+            </button>
+          </li>
+          <li class="menu-item">
+            <button id="btn-planned" class="btn-menu-option">
+              <i class="fa-regular fa-calendar-days menu-icon"></i>
+              <p>Planned</p>
+            </button>
+          </li>
+          <li class="menu-item">
+            <button id="btn-task_lists" class="btn-menu-option">
+              <i class="fa-solid fa-list-check menu-icon"></i>
+              <p>Task lists</p>
+            </button>
+          </li>
+        </ul>
+      </aside>
+      <div id="div-main">
+        <div id="div-toolbar">
+          <div id="menu-option-info">
+            <h2><i class="fa-regular fa-sun menu-icon"></i>My Day</h2>
+            <p id="date-info">Wednesday, March 20</p>
+          </div>
+        </div>
+        <div id="div-task-info">
+          <div id="new-task">
+            <i class="fa-solid fa-plus"></i>
+            <input
+              type="text"
+              name="task_name"
+              id="input-task_name"
+              placeholder="Add a task"
+              autocomplete="off"
+            />
+          </div>
+
+          <div id="task-features">
+            <input
+              type="date"
+              name="task_date"
+              id="input-task_date"
+              autocomplete="off"
+            />
+            <button id="btn-add">Add</button>
+          </div>
+        </div>
+        <ul id="tasks-list"></ul>
+      </div>
+    </main>
+  </body>
+</html>

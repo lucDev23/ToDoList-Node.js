@@ -1,0 +1,319 @@
+@import url('https://fonts.cdnfonts.com/css/open-sauce-one');
+@import url('https://fonts.cdnfonts.com/css/tajawal');
+
+:root {
+    --color-lightGrey: #d3d6cf;
+    --color-grey: #a9aca9;
+    --color-font: #2f2235;
+    --color-background3: #f8f8f3;
+    --color-background2: #f6f6f6;
+    --color-lightPurple: #60495a;
+    --color-purple: #3f3244;
+}
+
+* {
+    font-family: 'Tajawal', sans-serif;
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+/* General classes */
+
+.resizable-txt:hover {
+    font-size: 3.2rem;
+}
+
+.hidden {
+    display: none;
+}
+
+/*  */
+
+body {
+    background-color: var(--color-lightGrey);
+    overflow: hidden;
+}
+
+#nav-bar {
+    height: 70px;
+    background-color: var(--color-lightPurple);
+    border-bottom: 2px solid var(--color-font);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    position: sticky;
+}
+
+.div-btn-icon {
+    width: 3.5rem;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-transparent {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-icon {
+    font-size: 2rem;
+    color: var(--color-font);
+}
+
+.nav-icon:hover {
+    font-size: 2.2rem;
+}
+
+h1 {
+    font-size: 3rem;
+    color: var(--color-background3);
+    cursor: default;
+}
+
+main {
+    display: flex;
+    height: calc(100vh - 70px);
+}
+
+#menu-aside {
+    width: 18%;
+    height: 100%;
+    background-color: var(--color-grey);
+    border-right: 1px solid var(--color-font);
+}
+
+#menu-options {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    list-style: none;
+}
+
+.menu-item {
+    width: 100%;
+    height: 55px;
+}
+
+.btn-menu-option {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 0 20px;
+    background-color: var(--color-grey);
+    border: none;
+}
+
+.menu-item:hover {
+    background-color: var(--color-lightGrey);
+}
+
+.btn-menu-option > p {
+    color: var(--color-purple);
+    font-size: 1.2vw;
+    font-weight: 500;
+}
+
+.selected-menu-option {
+    background-color: var(--color-lightGrey);
+}
+
+.menu-icon {
+    color: var(--color-purple);
+    width: 2rem;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+#div-main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+    gap: 10px;
+}
+
+#div-toolbar {
+    width: calc(100% - 40px);
+    height: 60px;
+    margin: 0 20px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+}
+
+#menu-option-info {
+    width: 10rem;
+    padding: 5px;
+}
+
+#menu-option-info > h2 {
+    width: 100%;
+    font-size: 1.3rem;
+    color: var(--color-purple);
+}
+
+#menu-option-info > h2 > i {
+    text-align: left;
+    width: 20%;
+}
+
+#date-info {
+    font-size: 0.8rem;
+}
+
+#div-task-info {
+    width: calc(100% - 40px);
+    border-radius: 5px;
+    border: 1px solid var(--color-font);
+    background-color: var(--color-background3);
+    padding: 2px;
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#new-task {
+    border: none;
+    display: flex;
+    border-bottom: 1px solid var(--color-font);
+    padding-right: 20px;
+}
+
+#new-task > i {
+    width: 2rem;
+    text-align: center;
+    line-height: 2.6;
+}
+
+#input-task_name {
+    width: 100%;
+    font-size: 1.2rem;
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+#task-features {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px;
+}
+
+#input-task_date {
+    border: 1px solid var(--color-font);
+    border-radius: 1px;
+    background-color: transparent;
+    width: 1rem;
+    height: 1rem;
+}
+
+#input-task_date:hover {
+    background-color: var(--color-lightGrey);
+}
+
+#btn-add {
+    width: 2.8rem;
+    height: 2rem;
+    letter-spacing: 1px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 1px;
+    background-color: var(--color-lightPurple);
+    color: var(--color-background3);
+    border: 1.5px solid var(--color-font);
+    cursor: pointer;
+}
+
+#btn-add:hover {
+    background-color: var(--color-lightGrey);
+    color: var(--color-font);
+}
+
+#tasks-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: start;
+    width: calc(100% - 40px);
+    max-height: 100%;
+    overflow: auto;
+    gap: 2px;
+    margin: 0 20px;
+}
+
+#tasks-list::-webkit-scrollbar {
+    width: 10px;
+}
+
+#tasks-list::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 10px;
+}
+
+#tasks-list::-webkit-scrollbar-thumb {
+    background-color: var(--color-lightPurple);
+    border-radius: 10px;
+}
+
+.task-item {
+    width: 100%;
+    height: 60px;
+    background-color: var(--color-background3);
+    border-radius: 5px;
+    display: flex;
+    padding: 0 10px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+#task-status {
+    width: 1.5rem;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid var(--color-purple);
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#task-status > i {
+    width: 100%;
+    height: 100%;
+    line-height: 1.6;
+    border-radius: 50%;
+    color: transparent;
+}
+
+#task-status > i:hover {
+    color: var(--color-purple);
+}
+
+#task-name {
+    width: 100%;
+}
+
+#add-to-imp {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#add-to-imp > i {
+    width: 100%;
+    height: 100%;
+}
+
+#add-to-imp > i:hover {
+    color: var(--color-grey);
+}
