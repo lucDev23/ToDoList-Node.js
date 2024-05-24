@@ -1,5 +1,5 @@
 function moveWithArrows(formName) {
-    const form = document.getElementById(formName);
+    const form = document.querySelector(formName);
     const inputs = form.querySelectorAll('input');
 
     inputs.forEach((input, index) => {
@@ -17,3 +17,5 @@ function moveWithArrows(formName) {
         });
     });
 }
+
+moveWithArrows('.auth-form');

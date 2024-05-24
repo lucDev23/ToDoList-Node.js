@@ -12,22 +12,35 @@ router.get('/login', authController.getLogin);
 
 router.get('/signup', authController.getSignup);
 
-router.post('/login', authController.postLogin);
+router.post(
+    '/login',
+    [
+        body(['email', 'password'], 'All fields are required').notEmpty(),
+        body('email', 'Please enter a valid email address.').isEmail(),
+        body('password', 'Password must have at least 6 characters')
+            .isLength({ min: 6 })
+            .trim(),
+    ],
+    authController.postLogin
+);
 
 router.post(
     '/signup',
     [
-        body('email')
+        body(
+            ['email', 'username', 'password', 'confirmPassword'],
+            'All fields are required'
+        ).notEmpty(),
+
+        body('email', 'Please enter a valid email address')
             .isEmail()
-            .withMessage('Please enter a valid email address')
             .custom(async (email, { req }) => {
                 const user = await User.findOne({ email: email });
-                console.log(user);
                 if (user) {
                     throw new Error('E-Mail exists already');
                 }
-            })
-            .normalizeEmail(),
+            }),
+
         body(
             'username',
             'The username must consist of at least 5 alphanumeric characters.'
@@ -35,12 +48,16 @@ router.post(
             .isLength({ min: 5 })
             .isAlphanumeric()
             .trim(),
-        body('password').isLength({ min: 6 }).isAlphanumeric().trim(),
+
+        body('password', 'Password must have at least 6 characters')
+            .isLength({ min: 6 })
+            .trim(),
+
         body('confirmPassword')
             .trim()
             .custom((confirmPassword, { req }) => {
                 if (confirmPassword !== req.body.password) {
-                    throw new Error('Passwords have to match!');
+                    throw new Error("Passwords doesn't match!");
                 }
                 return true;
             }),

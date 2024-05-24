@@ -45,14 +45,13 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
   border-radius: 10px;
-  gap: 15px;
 }
 
 .input-group {
   width: 80%;
+  margin-bottom: 10px;
 }
 
 .label {
@@ -96,4 +95,26 @@ body {
 
 .auth-btn:hover {
   background-color: var(--color-lightPurple);
+}
+
+.p-error {
+  display: grid;
+  place-content: center;
+  margin-bottom: 10px;
+  color: red;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-align: center;
+  width: 100%;
+}
+
+.account-message {
+  color: var(--color-purple);
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.redirect-link {
+  font-weight: bold;
+  color: var(--color-font);
 }

@@ -3,50 +3,106 @@
 import bcrypt from 'bcrypt';
 import User from '../models/user.js';
 import { validationResult } from 'express-validator';
+import validator from 'validator';
 
 export const getLogin = (req, res, next) => {
-    res.render('auth/login');
+    res.render('auth/login', {
+        pageTitle: 'Task Manager | Sign in',
+        errorMessage: undefined,
+        oldInputs: {
+            email: '',
+            password: '',
+        },
+    });
 };
 
 export const getSignup = (req, res, next) => {
-    res.render('auth/signup');
+    res.render('auth/signup', {
+        pageTitle: 'Task Manager | Sign up',
+        errorMessage: undefined,
+        oldInputs: {
+            email: '',
+            username: '',
+            password: '',
+            confirmPassword: '',
+        },
+    });
 };
 
-export const postLogin = (req, res, next) => {
-    const email = req.body.email;
+export const postLogin = async (req, res, next) => {
+    let email = req.body.email;
     const password = req.body.password;
 
-    console.log(email, password);
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).render('auth/login', {
+            pageTitle: 'Task Manager | Sign in',
+            errorMessage: errors.array()[0].msg,
+            oldInputs: {
+                email: email,
+                password: password,
+            },
+        });
+    }
+
+    try {
+        const normalizedEmail = validator.normalizeEmail(email);
+        const user = await User.findOne({ email: email });
+
+        if (!user) {
+            return res.status(400).render('auth/login', {
+                pageTitle: 'Task Manager | Sign in',
+                errorMessage: 'Invalid email or password',
+                oldInputs: {
+                    email: email,
+                    password: password,
+                },
+            });
+        }
+
+        const passwordMatch = await bcrypt.compare(password, user.password);
+        if (passwordMatch) {
+            return res.redirect('/user');
+        }
+
+        return res.status(400).render('auth/login', {
+            pageTitle: 'Task Manager | Sign in',
+            errorMessage: 'Invalid email or password',
+            oldInputs: {
+                email: email,
+                password: password,
+            },
+        });
+    } catch (error) {}
 };
 
 export const postSignup = async (req, res, next) => {
-    // Get the data from the front end signup form
     const email = req.body.email;
     const password = req.body.password;
     const username = req.body.username;
 
-    // Check for errors in the input validation
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-        console.log(errors.array()[0]);
-        return res.redirect('/auth/signup');
+        return res.status(400).render('auth/signup', {
+            pageTitle: 'Task Manager | Sign up',
+            errorMessage: errors.array()[0].msg,
+            oldInputs: {
+                email: email,
+                username: username,
+                password: password,
+                confirmPassword: req.body.confirmPassword,
+            },
+        });
     }
 
     try {
-        // Hash the password before save it in the db
         const hashedPassword = await bcrypt.hash(password, 12);
-
-        // Create the user with the data
         const user = new User({
-            email: email,
+            email: validator.normalizeEmail(email),
             username: username,
             password: hashedPassword,
         });
-
-        // Save the use in the db
         await user.save();
-
-        // Redirect the user
         res.redirect('/user');
     } catch (error) {
         console.log('34 auth.js: ', error);

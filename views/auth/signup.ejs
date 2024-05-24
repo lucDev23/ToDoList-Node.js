@@ -3,31 +3,69 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="/assets/css/auth.css">
-		<script defer src="/assets/js/auth-script.js"></script>
-        <title>Register Panel</title>
+        <link rel="stylesheet" href="/assets/css/auth.css" />
+        <script defer src="/assets/js/auth-script.js"></script>
+        <title><%= pageTitle %></title>
     </head>
     <body>
         <div class="auth-container">
             <h2 class="auth-heading">Sign up</h2>
-            <form class="auth-form" action="/auth/signup" method="POST" novalidate>
+            <form
+                class="auth-form"
+                action="/auth/signup"
+                method="POST"
+                novalidate
+            >
                 <div class="input-group">
                     <label for="email" class="label">Email:</label>
-                    <input type="email" id="email" name="email" class="auth-input" autocomplete="off/>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="auth-input"
+                        autocomplete="off"
+                        value="<%= oldInputs.email %>"
+                    />
 
-					<label for="username" class="label">Username:</label>
-                    <input type="text" id="username" name="username" class="auth-input" autocomplete="off/>
+                    <label for="username" class="label">Username:</label>
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        class="auth-input"
+                        autocomplete="off"
+                        value="<%= oldInputs.username %>"
+                    />
 
-					<label for="password" class="label">Password:</label>
-                    <input type="password" id="password"
-                        name="password" class="auth-input"  />
-                    
-					<label for="confirm-password" class="label">Confirm Password:</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" class="auth-input" />
-					
+                    <label for="password" class="label">Password:</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        class="auth-input"
+                        value="<%= oldInputs.password %>"
+                    />
+
+                    <label for="confirm-password" class="label"
+                        >Confirm Password:</label
+                    >
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        class="auth-input"
+                        value="<%= oldInputs.confirmPassword %>"
+                    />
                 </div>
+                <% if (errorMessage) { %>
+                <p class="p-error"><%= errorMessage %></p>
+                <% } %>
                 <button type="submit" class="auth-btn">Sign up</button>
             </form>
+            <p class="account-message">
+                Already have an account?
+                <a class="redirect-link" href="/auth/login">Sign In</a>
+            </p>
         </div>
     </body>
 </html>
