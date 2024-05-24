@@ -1,8 +1,13 @@
+'use strict';
+
+// LIBRARIES
 import express from 'express';
 import bodyParser from 'body-parser';
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
+import mongoose from 'mongoose';
 
+// ROUTES
 import mainRoutes from './routes/main.js';
 import userRoutes from './routes/user.js';
 import authRoutes from './routes/auth.js';
@@ -21,11 +26,21 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/user', userRoutes);
 app.use(mainRoutes);
-app.use(authRoutes);
+app.use('/auth', authRoutes);
 
 app.use(errorController.get404);
 
-const PORT = 3001;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+// DATA BASE CONNECTION
+
+const MONGODB_URI =
+    'mongodb+srv://luDev23:luDev23App@task-manager.mr2bpef.mongodb.net/?retryWrites=true&w=majority&appName=task-manager';
+const PORT = 3000;
+
+try {
+    await mongoose.connect(MONGODB_URI);
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+    });
+} catch (error) {
+    console.log('l44 app.js: ', error);
+}

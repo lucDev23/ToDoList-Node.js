@@ -11,16 +11,15 @@
         ></script>
         <script defer src="/assets/js/main-script.js"></script>
     </head>
-    <body>
+    <body class="body">
         <header>
-            <nav class="nav-bar">
-				<div class="auth-btns-container">
-					<a class="btn-auth" href="/login">
+            <nav class="nav">
+				<div class="div-auth">
+					<a class="button-auth" href="/auth/login">
                         <i class="fa-solid fa-right-to-bracket"></i>
                         Sign in
 					</a>
-                    <a class="btn-auth" href="/signup">
-                        <!-- <i class="fa-solid fa-user-plus"></i> -->
+                    <a class="button-auth" href="/auth/signup">
                         Sign up
 					</a>
 				</div>
@@ -28,31 +27,20 @@
             </nav>
         </header>
         <hr class="separator" />
-        <main>
-            <section class="main-section">
-                <div class="title-div">
+        <main class="main">
+                <div class="div-title">
                     <img src="/images/checkImg.png" alt="Check tick image" />
-                    <h1>
-                        <span id="spLu">Task</span><span id="spDev">Manager </span>
+                    <h1 class="h1">
+                        <span class="span-task">Task</span><span class="span-manager">Manager </span>
                     </h1>
                 </div>
-
-                <div id="left-side-img">
-                    <img
-                        src="/images/man-pc.png"
-                        alt="Black and white image with people"
+                <div class="image-left">
+                    <img src="/images/man-pc.png" alt="Black and white man image"
                     />
-                    <p class="hidden">Hi!</p>
                 </div>
-
-                <div id="right-side-img">
-                    <img
-                        src="/images/woman-pc.png"
-                        alt="Black and white image with people"
-                    />
-                    <p class="hidden">Hi! What's up?</p>
+                <div class="image-right">
+                    <img src="/images/woman-pc.png" alt="Black and white women image"/>
                 </div>
-            </section>
         </main>
         <footer>
             <!-- Footer content  -->
