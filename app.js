@@ -12,6 +12,7 @@ import mainRoutes from './routes/main.js';
 import userRoutes from './routes/user.js';
 import authRoutes from './routes/auth.js';
 import * as errorController from './controllers/error.js';
+import User from './models/user.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -23,6 +24,18 @@ app.set('views', 'views');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(async (req, res, next) => {
+    if (req.user) {
+        return next();
+    }
+    try {
+        req.user = await User.findOne();
+        return next();
+    } catch (error) {
+        console.log('l36 app.js: ', error);
+    }
+});
 
 app.use('/user', userRoutes);
 app.use(mainRoutes);

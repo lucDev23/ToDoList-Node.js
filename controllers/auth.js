@@ -7,7 +7,7 @@ import validator from 'validator';
 
 export const getLogin = (req, res, next) => {
     res.render('auth/login', {
-        pageTitle: 'Task Manager | Sign in',
+        pageTitle: 'ToDo | Sign in',
         errorMessage: undefined,
         oldInputs: {
             email: '',
@@ -18,7 +18,7 @@ export const getLogin = (req, res, next) => {
 
 export const getSignup = (req, res, next) => {
     res.render('auth/signup', {
-        pageTitle: 'Task Manager | Sign up',
+        pageTitle: 'ToDo | Sign up',
         errorMessage: undefined,
         oldInputs: {
             email: '',
@@ -36,7 +36,7 @@ export const postLogin = async (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).render('auth/login', {
-            pageTitle: 'Task Manager | Sign in',
+            pageTitle: 'ToDo | Sign in',
             errorMessage: errors.array()[0].msg,
             oldInputs: {
                 email: email,
@@ -47,11 +47,11 @@ export const postLogin = async (req, res, next) => {
 
     try {
         const normalizedEmail = validator.normalizeEmail(email);
-        const user = await User.findOne({ email: email });
+        const user = await User.findOne({ email: normalizedEmail });
 
         if (!user) {
             return res.status(400).render('auth/login', {
-                pageTitle: 'Task Manager | Sign in',
+                pageTitle: 'ToDo | Sign in',
                 errorMessage: 'Invalid email or password',
                 oldInputs: {
                     email: email,

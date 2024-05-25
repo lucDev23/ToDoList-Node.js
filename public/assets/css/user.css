@@ -24,26 +24,23 @@
   font-size: 3.2rem;
 }
 
-.hidden {
-  display: none;
-}
-
-/*  */
-
-body {
+.body {
   background-color: var(--color-lightGrey);
   overflow: hidden;
 }
 
-#nav-bar {
-  height: 70px;
+.hidden {
+  display: none;
+}
+
+.nav {
+  height: 60px;
   background-color: var(--color-lightPurple);
   border-bottom: 2px solid var(--color-font);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 0;
-  position: sticky;
 }
 
 .div-btn-icon {
@@ -79,14 +76,14 @@ main {
   height: calc(100vh - 70px);
 }
 
-#menu-aside {
+.aside-menu {
   width: 18%;
   height: 100%;
   background-color: var(--color-grey);
   border-right: 1px solid var(--color-font);
 }
 
-#menu-options {
+.menu-options {
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -116,8 +113,10 @@ main {
 
 .btn-menu-option > p {
   color: var(--color-purple);
-  font-size: 1.2vw;
+  font-size: 1.2rem;
   font-weight: 500;
+  width: 100%;
+  text-align: left;
 }
 
 .selected-menu-option {
@@ -131,7 +130,7 @@ main {
   text-align: center;
 }
 
-#div-main {
+.div-main {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -139,7 +138,7 @@ main {
   gap: 10px;
 }
 
-#div-toolbar {
+.div-toolbar {
   width: calc(100% - 40px);
   height: 60px;
   margin: 0 20px;
@@ -148,27 +147,27 @@ main {
   position: sticky;
 }
 
-#menu-option-info {
+.menu-option-info {
   width: 10rem;
   padding: 5px;
 }
 
-#menu-option-info > h2 {
+.menu-option-info h2 {
   width: 100%;
   font-size: 1.3rem;
   color: var(--color-purple);
 }
 
-#menu-option-info > h2 > i {
+.menu-option-info h2 > i {
   text-align: left;
   width: 20%;
 }
 
-#date-info {
+.date-info {
   font-size: 0.8rem;
 }
 
-#div-task-info {
+.div-task-info {
   width: calc(100% - 40px);
   border-radius: 5px;
   border: 1px solid var(--color-font);
@@ -179,20 +178,20 @@ main {
   flex-direction: column;
 }
 
-#new-task {
+.new-task {
   border: none;
   display: flex;
   border-bottom: 1px solid var(--color-font);
   padding-right: 20px;
 }
 
-#new-task > i {
+.new-task i {
   width: 2rem;
   text-align: center;
   line-height: 2.6;
 }
 
-#input-task_name {
+.input-task_name {
   width: 100%;
   font-size: 1.2rem;
   outline: none;
@@ -200,14 +199,14 @@ main {
   background-color: transparent;
 }
 
-#task-features {
+.task-features {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 2px;
 }
 
-#input-task_date {
+.input-date {
   border: 1px solid var(--color-font);
   border-radius: 1px;
   background-color: transparent;
@@ -215,11 +214,11 @@ main {
   height: 1rem;
 }
 
-#input-task_date:hover {
+.input-date:hover {
   background-color: var(--color-lightGrey);
 }
 
-#btn-add {
+.btn-add {
   width: 2.8rem;
   height: 2rem;
   letter-spacing: 1px;
@@ -232,12 +231,12 @@ main {
   cursor: pointer;
 }
 
-#btn-add:hover {
+.btn-add:hover {
   background-color: var(--color-lightGrey);
   color: var(--color-font);
 }
 
-#tasks-list {
+.tasks-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -249,16 +248,16 @@ main {
   margin: 0 20px;
 }
 
-#tasks-list::-webkit-scrollbar {
+.tasks-list::-webkit-scrollbar {
   width: 10px;
 }
 
-#tasks-list::-webkit-scrollbar-track {
+.tasks-list::-webkit-scrollbar-track {
   background-color: transparent;
   border-radius: 10px;
 }
 
-#tasks-list::-webkit-scrollbar-thumb {
+.tasks-list::-webkit-scrollbar-thumb {
   background-color: var(--color-lightPurple);
   border-radius: 10px;
 }
@@ -275,7 +274,7 @@ main {
   gap: 10px;
 }
 
-#task-status {
+.task-status {
   width: 1.5rem;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
@@ -287,7 +286,7 @@ main {
   align-items: center;
 }
 
-#task-status > i {
+.task-status i {
   width: 100%;
   height: 100%;
   line-height: 1.6;
@@ -295,25 +294,25 @@ main {
   color: transparent;
 }
 
-#task-status > i:hover {
+.task-status i:hover {
   color: var(--color-purple);
 }
 
-#task-name {
+.task-name {
   width: 100%;
 }
 
-#add-to-imp {
+.add-to-imp {
   background-color: transparent;
   border: none;
   cursor: pointer;
 }
 
-#add-to-imp > i {
+.add-to-imp i {
   width: 100%;
   height: 100%;
 }
 
-#add-to-imp > i:hover {
+.add-to-imp i i:hover {
   color: var(--color-grey);
 }

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title><%= pageTitle %></title>
+        <link rel="stylesheet" href="/assets/css/user.css" />
+        <script
+            src="https://kit.fontawesome.com/de28e9df45.js"
+            crossorigin="anonymous"
+        ></script>
+        <script defer src="/assets/js/user-script.js"></script>
+    </head>
+    <body class="body">
+        <header>
+            <nav class="nav">
+                <div id="div-menu" class="div-btn-icon">
+                    <button id="btn-menu" class="btn-transparent">
+                        <i class="fa-solid fa-bars nav-icon"></i>
+                    </button>
+                </div>
+                <div id="div-h1">
+                    <h1>
+                        <span class="resizable-txt">LuDev</span>
+                        <span class="resizable-txt">ToDo</span>
+                    </h1>
+                </div>
+                <div id="div-user" class="div-btn-icon">
+                    <button id="btn-user" class="btn-transparent">
+                        <i class="fa-solid fa-user nav-icon"></i>
+                    </button>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <aside class="aside-menu appearFromLeft">
+                <ul class="menu-options">
+                    <li class="menu-item">
+                        <button id="btn-my_day" class="btn-menu-option">
+                            <i class="fa-regular fa-sun menu-icon"></i>
+                            <p>My day</p>
+                        </button>
+                    </li>
+                    <li class="menu-item">
+                        <button id="btn-important" class="btn-menu-option">
+                            <i class="fa-regular fa-star menu-icon"></i>
+                            <p>Important</p>
+                        </button>
+                    </li>
+                    <li class="menu-item">
+                        <button id="btn-planned" class="btn-menu-option">
+                            <i
+                                class="fa-regular fa-calendar-days menu-icon"
+                            ></i>
+                            <p>Planned</p>
+                        </button>
+                    </li>
+                    <li class="menu-item">
+                        <button id="btn-task_lists" class="btn-menu-option">
+                            <i class="fa-solid fa-list-check menu-icon"></i>
+                            <p>Tasks list</p>
+                        </button>
+                    </li>
+                </ul>
+            </aside>
+            <div class="div-main">
+                <div class="div-toolbar">
+                    <div class="menu-option-info">
+                        <h2>
+                            <i class="fa-solid fa-list-check menu-icon"></i
+                            >Tasks list
+                        </h2>
+                    </div>
+                </div>
+                <ul class="tasks-list">
+                    <% for (let task of allTasks) { %>
+                    <li class="task-item">
+                        <button
+                            class="task-status"
+                            type="button"
+                            title="Mark as done"
+                        >
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                        <p class="task-name"><%= task.name %></p>
+                        <button class="add-to-imp">
+                            <i
+                                class="fa-regular fa-star menu-icon"
+                                title="Add to important"
+                            ></i>
+                        </button>
+                    </li>
+
+                    <% } %>
+                </ul>
+            </div>
+        </main>
+    </body>
+</html>
