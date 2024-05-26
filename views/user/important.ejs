@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../includes/head.ejs') %>
+    <body class="body">
+        <%- include('../includes/header.ejs') %>
+        <main>
+            <%- include('../includes/menu.ejs') %>
+            <div class="div-main">
+                <%- include('../includes/info.ejs', {infoName: 'Important',
+                icon: 'fa-solid fa-star'}) %> <%-
+                include('../includes/taskList.ejs') %>
+            </div>
+        </main>
+    </body>
+</html>

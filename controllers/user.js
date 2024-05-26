@@ -30,12 +30,57 @@ export const postAddTask = async (req, res, next) => {
         });
     }
 
-    console.log(task);
     try {
         await task.save();
         res.redirect('/user/add-task');
     } catch (error) {
         console.log(error);
+    }
+};
+
+export const getImportantTasks = async (req, res, next) => {
+    try {
+        const importantTasks = (await Task.find({ important: true })).map(
+            (task) => ({
+                name: task.name,
+                completionDate: moment
+                    .utc(task.completionDate)
+                    .format('DD/M/YYYY'),
+                createdAt: moment.utc(task.createdAt).format('DD/M/YYYY'),
+            })
+        );
+
+        res.render('user/important', {
+            pageTitle: 'ToDo | Important Tasks',
+            menuOption: 'important',
+            allTasks: importantTasks,
+        });
+    } catch (error) {
+        console.log('l46 user.js, ', error);
+    }
+};
+
+export const getDayTasks = async (req, res, next) => {
+    try {
+        const todayDate = new Date();
+        const dayTasks = (await Task.find({ createdAt: todayDate })).map(
+            (task) => ({
+                name: task.name,
+                completionDate: moment
+                    .utc(task.completionDate)
+                    .format('DD/M/YYYY'),
+                createdAt: moment.utc(task.createdAt).format('DD/M/YYYY'),
+            })
+        );
+
+        res.render('user/myDay', {
+            pageTitle: 'ToDo | My day',
+            menuOption: 'myDay',
+            todayDate: moment().format('dddd, MMMM DD'),
+            allTasks: dayTasks,
+        });
+    } catch (error) {
+        console.log('l46 user.js, ', error);
     }
 };
 

@@ -19,6 +19,10 @@ const taskSchema = new Schema(
             ref: 'User',
             required: true,
         },
+        important: {
+            type: Boolean,
+            default: false,
+        },
         type: {
             type: String,
             required: true,

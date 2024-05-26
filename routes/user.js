@@ -9,6 +9,10 @@ router.post('/add-task', userController.postAddTask);
 
 router.get('/logout', userController.logout);
 
+router.get('/important', userController.getImportantTasks);
+
+router.get('/my-day', userController.getDayTasks);
+
 router.get('/add-task', userController.getAddTask);
 
 router.get('/tasks-list', userController.getAllTasks);

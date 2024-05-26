@@ -143,36 +143,26 @@ main {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
 }
 
 .div-toolbar {
   width: calc(100% - 40px);
   height: 60px;
-  margin: 0 20px;
+  margin: 5px 20px;
   display: flex;
-  align-items: center;
-  position: sticky;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
 }
 
-.menu-option-info {
-  width: 10rem;
-  padding: 5px;
-}
-
-.menu-option-info h2 {
-  width: 100%;
-  font-size: 1.3rem;
+.div-toolbar h2 {
+  font-size: 1.4rem;
   color: var(--color-purple);
 }
 
-.menu-option-info h2 > i {
-  text-align: left;
-  width: 20%;
-}
-
-.date-info {
-  font-size: 0.8rem;
+.div-toolbar p {
+  font-size: 1rem;
+  color: var(--color-purple);
 }
 
 .div-task-info {
