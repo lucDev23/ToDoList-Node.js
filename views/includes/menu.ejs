@@ -1,19 +1,41 @@
 <aside class="aside-menu appearFromLeft">
     <ul class="menu-options">
         <li class="menu-item">
-            <a id="btn-my_day" class="btn-menu-option">
+            <a
+                id="btn-my_day"
+                class="btn-menu-option <%= menuOption === 'addTask' ? 'active' : '' %>"
+                href="/user/add-task"
+            >
+                <i class="fa-solid fa-calendar-plus menu-icon"></i>
+                <p>Add task</p>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a
+                id="btn-my_day"
+                class="btn-menu-option <%= menuOption === 'myDay' ? 'active' : '' %>"
+                href="/user"
+            >
                 <i class="fa-regular fa-sun menu-icon"></i>
                 <p>My day</p>
             </a>
         </li>
         <li class="menu-item">
-            <a id="btn-important" class="btn-menu-option">
+            <a
+                id="btn-important"
+                class="btn-menu-option <%= menuOption === 'important' ? 'active' : '' %>"
+                href="/user/important"
+            >
                 <i class="fa-regular fa-star menu-icon"></i>
                 <p>Important</p>
             </a>
         </li>
         <li class="menu-item">
-            <a id="btn-planned" class="btn-menu-option">
+            <a
+                id="btn-planned"
+                class="btn-menu-option <%= menuOption === 'planned' ? 'active' : '' %>"
+                href="/user/planned"
+            >
                 <i class="fa-regular fa-calendar-days menu-icon"></i>
                 <p>Planned</p>
             </a>
@@ -21,7 +43,7 @@
         <li class="menu-item">
             <a
                 id="btn-task_lists"
-                class="btn-menu-option"
+                class="btn-menu-option <%= menuOption === 'tasksList' ? 'active' : '' %>"
                 href="/user/tasks-list"
             >
                 <i class="fa-solid fa-list-check menu-icon"></i>

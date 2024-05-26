@@ -4,7 +4,7 @@ import Task from './task.js';
 const Schema = mongoose.Schema;
 
 const plannedTaskSchema = new Schema({
-    realizationDate: {
+    completionDate: {
         type: Date,
         required: true,
     },

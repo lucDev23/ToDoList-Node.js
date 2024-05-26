@@ -5,9 +5,11 @@ import * as userController from '../controllers/user.js';
 
 const router = express.Router();
 
-router.get('/', userController.getIndex);
-
 router.post('/add-task', userController.postAddTask);
+
+router.get('/logout', userController.logout);
+
+router.get('/add-task', userController.getAddTask);
 
 router.get('/tasks-list', userController.getAllTasks);
 

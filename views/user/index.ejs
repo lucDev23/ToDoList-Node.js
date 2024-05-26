@@ -9,9 +9,8 @@
                 <div class="div-toolbar">
                     <div class="menu-option-info">
                         <h2>
-                            <i class="fa-regular fa-sun menu-icon"></i>My Day
+                            <i class="fa-solid fa-calendar-plus"></i>Add task
                         </h2>
-                        <p class="date-info"><%= new Date().toString() %></p>
                     </div>
                 </div>
                 <form
@@ -32,13 +31,16 @@
                     </div>
 
                     <div class="task-features">
-                        <input
-                            type="date"
-                            name="taskDate"
-                            id="input-date"
-                            autocomplete="off"
-                            class="input-date"
-                        />
+                        <label for="input-date"
+                            >Completion date:
+                            <input
+                                type="date"
+                                name="completionDate"
+                                id="input-date"
+                                autocomplete="off"
+                                class="input-date"
+                            />
+                        </label>
                         <button type="submit" class="btn-add">Add</button>
                     </div>
                 </form>

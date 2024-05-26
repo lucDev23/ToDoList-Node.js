@@ -62,7 +62,7 @@ export const postLogin = async (req, res, next) => {
 
         const passwordMatch = await bcrypt.compare(password, user.password);
         if (passwordMatch) {
-            return res.redirect('/user');
+            return res.redirect('/user/add-task');
         }
 
         return res.status(400).render('auth/login', {
@@ -103,7 +103,7 @@ export const postSignup = async (req, res, next) => {
             password: hashedPassword,
         });
         await user.save();
-        res.redirect('/user');
+        res.redirect('/user/add-task');
     } catch (error) {
         console.log('34 auth.js: ', error);
     }

@@ -13,19 +13,20 @@ const taskSchema = new Schema(
             required: true,
             default: false,
         },
-        creationDate: {
-            type: Date,
-            required: true,
-            default: Date.now,
-        },
-        finishDate: String,
+        finishDate: Date,
         userId: {
             type: Schema.Types.ObjectId,
             ref: 'User',
             required: true,
         },
+        type: {
+            type: String,
+            required: true,
+            enum: ['normal', 'planned'],
+            default: 'normal',
+        },
     },
-    { discriminatorKey: 'type' }
+    { discriminatorKey: 'type', timestamps: true }
 );
 
 const Task = mongoose.model('Task', taskSchema);
