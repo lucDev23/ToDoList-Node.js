@@ -1,3 +1,4 @@
+import moment from 'moment';
 import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
@@ -14,6 +15,10 @@ const taskSchema = new Schema(
             default: false,
         },
         finishDate: Date,
+        creationDate: {
+            type: String,
+            default: moment().format('DD/M/YYYY'),
+        },
         userId: {
             type: Schema.Types.ObjectId,
             ref: 'User',

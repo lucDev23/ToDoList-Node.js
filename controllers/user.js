@@ -62,17 +62,14 @@ export const getImportantTasks = async (req, res, next) => {
 
 export const getDayTasks = async (req, res, next) => {
     try {
-        const todayDate = new Date();
-        const dayTasks = (await Task.find({ createdAt: todayDate })).map(
-            (task) => ({
-                name: task.name,
-                completionDate: moment
-                    .utc(task.completionDate)
-                    .format('DD/M/YYYY'),
-                createdAt: moment.utc(task.createdAt).format('DD/M/YYYY'),
-            })
-        );
-
+        const dayTasks = (
+            await Task.find({ creationDate: moment().format('DD/M/YYYY') })
+        ).map((task) => ({
+            name: task.name,
+            completionDate: moment.utc(task.completionDate).format('DD/M/YYYY'),
+            createdAt: moment.utc(task.createdAt).format('DD/M/YYYY'),
+        }));
+        console.log(dayTasks);
         res.render('user/myDay', {
             pageTitle: 'ToDo | My day',
             menuOption: 'myDay',
