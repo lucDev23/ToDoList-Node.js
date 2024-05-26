@@ -13,6 +13,8 @@ router.get('/important', userController.getImportantTasks);
 
 router.get('/my-day', userController.getDayTasks);
 
+router.get('/planned', userController.getPlannedTasks);
+
 router.get('/add-task', userController.getAddTask);
 
 router.get('/tasks-list', userController.getAllTasks);

@@ -15,7 +15,7 @@ const taskSchema = new Schema(
             default: false,
         },
         finishDate: Date,
-        creationDate: {
+        completionDate: {
             type: String,
             default: moment().format('DD/M/YYYY'),
         },
@@ -35,7 +35,7 @@ const taskSchema = new Schema(
             default: 'normal',
         },
     },
-    { discriminatorKey: 'type', timestamps: true }
+    { timestamps: true }
 );
 
 const Task = mongoose.model('Task', taskSchema);

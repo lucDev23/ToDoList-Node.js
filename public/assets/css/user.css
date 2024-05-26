@@ -148,7 +148,7 @@ main {
 .div-toolbar {
   width: calc(100% - 40px);
   height: 60px;
-  margin: 5px 20px;
+  margin: 5px 25px;
   display: flex;
   flex-direction: column;
   align-items: left;
@@ -168,12 +168,12 @@ main {
 .div-task-info {
   width: calc(100% - 40px);
   border-radius: 5px;
-  border: 1px solid var(--color-font);
   background-color: var(--color-background3);
   padding: 2px;
-  margin: 0 20px;
+  margin: 0 25px;
   display: flex;
   flex-direction: column;
+  box-shadow: 0px 0px 3px var(--color-font);
 }
 
 .new-task {
@@ -274,10 +274,12 @@ main {
   background-color: var(--color-background3);
   border-radius: 5px;
   display: flex;
-  padding: 0 10px;
+  margin: 5px;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
+  padding: 0 10px;
+  box-shadow: 0px 0px 3px var(--color-font);
 }
 
 .task-status {

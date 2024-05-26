@@ -1,9 +1,7 @@
 <ul class="tasks-list">
     <% for (let task of allTasks) { %>
     <li class="task-item">
-        <button class="task-status" type="button" title="Mark as done">
-            <i class="fa-solid fa-check"></i>
-        </button>
+        <a class="task-status" type="button" title="Mark as done"> </a>
         <h3 class="task-name"><%= task.name %></h3>
         <p class="task-date">Created at: <%= task.createdAt %></p>
         <p class="task-date">Completion date: <%= task.completionDate %></p>
