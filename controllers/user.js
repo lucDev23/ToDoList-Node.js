@@ -2,6 +2,7 @@
 
 import moment from 'moment';
 import Task from '../models/task.js';
+import * as helpers from '../utils/helpers.js';
 
 export const getAddTask = async (req, res, next) => {
     res.render('user/index', {
@@ -34,37 +35,12 @@ export const postAddTask = async (req, res, next) => {
     }
 };
 
-export const getImportantTasks = async (req, res, next) => {
-    try {
-        const importantTasks = (await Task.find({ important: true })).map(
-            (task) => ({
-                name: task.name,
-                completionDate: moment
-                    .utc(task.completionDate)
-                    .format('DD/M/YYYY'),
-                createdAt: moment.utc(task.createdAt).format('DD/M/YYYY'),
-            })
-        );
-
-        res.render('user/important', {
-            pageTitle: 'ToDo | Important Tasks',
-            menuOption: 'important',
-            allTasks: importantTasks,
-        });
-    } catch (error) {
-        console.log('l46 user.js, ', error);
-    }
-};
-
 export const getDayTasks = async (req, res, next) => {
     try {
-        const dayTasks = (
-            await Task.find({ completionDate: moment().format('DD/M/YYYY') })
-        ).map((task) => ({
-            name: task.name,
-            completionDate: task.completionDate,
-            createdAt: moment.utc(task.createdAt).format('DD/M/YYYY'),
-        }));
+        const dayTasks = await helpers.getTasks({
+            completionDate: moment().format('DD/M/YYYY'),
+        });
+
         res.render('user/myDay', {
             pageTitle: 'ToDo | My day',
             menuOption: 'myDay',
@@ -76,13 +52,35 @@ export const getDayTasks = async (req, res, next) => {
     }
 };
 
+export const getImportantTasks = async (req, res, next) => {
+    try {
+        const importantTasks = await helpers.getTasks({ important: true });
+
+        res.render('user/important', {
+            pageTitle: 'ToDo | Important Tasks',
+            menuOption: 'important',
+            allTasks: importantTasks,
+        });
+    } catch (error) {
+        console.log('l46 user.js, ', error);
+    }
+};
+
+export const getPlannedTasks = async (req, res, next) => {
+    try {
+        const plannedTasks = await helpers.getTasks({ type: 'planned' });
+
+        res.render('user/planned', {
+            pageTitle: 'ToDo | Planned tasks',
+            allTasks: plannedTasks,
+            menuOption: 'planned',
+        });
+    } catch (error) {}
+};
+
 export const getAllTasks = async (req, res, next) => {
     try {
-        const allTasks = (await Task.find()).map((task) => ({
-            name: task.name,
-            completionDate: task.completionDate,
-            createdAt: moment.utc(task.createdAt).format('DD/M/YYYY'),
-        }));
+        const allTasks = await helpers.getTasks({});
 
         res.render('user/tasksList', {
             pageTitle: 'ToDo | Tasks list',
@@ -92,24 +90,6 @@ export const getAllTasks = async (req, res, next) => {
     } catch (error) {
         console.log('l44 user.js: ', error);
     }
-};
-
-export const getPlannedTasks = async (req, res, next) => {
-    try {
-        const plannedTasks = (await Task.find({ type: 'planned' })).map(
-            (task) => ({
-                name: task.name,
-                completionDate: task.completionDate,
-                createdAt: moment.utc(task.createdAt).format('DD/M/YYYY'),
-            })
-        );
-
-        res.render('user/planned', {
-            pageTitle: 'ToDo | Planned tasks',
-            allTasks: plannedTasks,
-            menuOption: 'planned',
-        });
-    } catch (error) {}
 };
 
 export const logout = (req, res, next) => {

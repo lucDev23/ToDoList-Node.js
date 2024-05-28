@@ -5,18 +5,18 @@ import * as userController from '../controllers/user.js';
 
 const router = express.Router();
 
+router.get('/add-task', userController.getAddTask);
+
 router.post('/add-task', userController.postAddTask);
-
-router.get('/logout', userController.logout);
-
-router.get('/important', userController.getImportantTasks);
 
 router.get('/my-day', userController.getDayTasks);
 
+router.get('/important', userController.getImportantTasks);
+
 router.get('/planned', userController.getPlannedTasks);
 
-router.get('/add-task', userController.getAddTask);
-
 router.get('/tasks-list', userController.getAllTasks);
+
+router.get('/logout', userController.logout);
 
 export default router;

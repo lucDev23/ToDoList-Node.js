@@ -1,16 +1,19 @@
 <ul class="tasks-list">
     <% for (let task of allTasks) { %>
     <li class="task-item">
-        <a class="task-status" type="button" title="Mark as done"> </a>
         <h3 class="task-name"><%= task.name %></h3>
-        <p class="task-date">Created at: <%= task.createdAt %></p>
-        <p class="task-date">Completion date: <%= task.completionDate %></p>
-        <button class="add-to-imp">
-            <i
-                class="fa-regular fa-star menu-icon"
-                title="Add to important"
-            ></i>
-        </button>
+
+        <div class="task-info">
+            <p class="info-field">Created at: <%= task.createdAt %></p>
+            <p class="info-field">Due date: <%= task.completionDate %></p>
+            <p>Stauts: <span class="span-status">In progress</span></p>
+        </div>
+
+        <div class="task-actions">
+            <a href="">Edit</a>
+            <a href="">Delete task</a>
+            <a href="">Important</a>
+        </div>
     </li>
     <% } %>
 </ul>
