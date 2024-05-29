@@ -1,8 +1,8 @@
 'use strict';
 
-const btnMenu = document.getElementById('btn-menu');
-const asideMenu = document.querySelector('.aside-menu');
-const taskName = document.getElementById('input-task_name');
+const btnMenu = document.getElementById('button__menu');
+const asideMenu = document.querySelector('.nav');
+const taskName = document.getElementById('task_name');
 
 if (taskName) taskName.focus();
 

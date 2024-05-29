@@ -23,9 +23,9 @@
                 id="task-priority"
                 name="task_priority"
             >
-				<option value=low">low</option>
-				<option value="medium">medium</option>
-                <option value="high">high</option>
+				<option value="low" <%= oldInputs.priority === 'low' ? 'selected' : '' %>>low</option>
+				<option value="medium" <%= oldInputs.priority === 'medium' ? 'selected' : '' %>>medium</option>
+                <option value="high" <%= oldInputs.priority === 'high' ? 'selected' : '' %>>high</option>
             </select>
         </div>
 
@@ -38,11 +38,11 @@
                 id="task-category"
                 name="task_category"
             >
-                <option value="general">general</option>
-                <option value="work">work</option>
-                <option value="personal">personal</option>
-                <option value="study">study</option>
-                <option value="health">health</option>
+			<option value="general" <%= oldInputs.category === 'general' ? 'selected' : '' %>>general</option>
+			<option value="work" <%= oldInputs.category === 'work' ? 'selected' : '' %>>work</option>
+			<option value="personal" <%= oldInputs.category === 'personal' ? 'selected' : '' %>>personal</option>
+			<option value="study" <%= oldInputs.category === 'study' ? 'selected' : '' %>>study</option>
+			<option value="health" <%= oldInputs.category === 'health' ? 'selected' : '' %>>health</option>
             </select>
         </div>
 
@@ -53,9 +53,10 @@
                 id="task_date"
                 type="datetime-local"
 				name="task_due_to"
+				value="<%= oldInputs.dueToDate %>"
             />
         </div>
 
-        <button class="create-task__button" href="">Add</button>
+        <button class="create-task__button" type="submit">Add</button>
     </form>
 </section>

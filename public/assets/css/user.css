@@ -26,6 +26,33 @@ body {
   overflow: auto;
 }
 
+/* ERROR STYLES */
+
+.error {
+  width: 100%;
+  display: grid;
+}
+
+.error__msg {
+  color: var(--color-dark-purple);
+  font-size: 1.5rem;
+  place-self: center;
+  padding: 5px;
+  background-color: var(--color-light-purple-2);
+  border-radius: 2px;
+}
+
+/* GENERAL CLASSES */
+
+.active {
+  background-color: var(--color-light-purple);
+  color: var(--color-light);
+}
+
+.hidden {
+  display: none;
+}
+
 /* ICON STYLES */
 
 .nav__icon {

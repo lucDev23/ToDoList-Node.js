@@ -1,31 +1,33 @@
 <nav class="nav">
     <ul class="nav__list">
         <li class="nav__item">
-            <a class="nav__button" href="/user/add-task"
+            <a 
+			class="nav__button 
+			<%= menuOption === 'addTask' ? 'active' : ''%>" href="/user/add-task"
                 ><i class="fa-solid fa-calendar-plus nav__icon"></i
                 ><span class="nav__text">Add task</span></a
             >
         </li>
         <li class="nav__item">
-            <a class="nav__button" href="/user/my-day"
+            <a class="nav__button <%= menuOption === 'myDay' ? 'active' : ''%>"" href="/user/my-day"
                 ><i class="fa-solid fa-sun nav__icon"></i
                 ><span class="nav__text">My day</span></a
             >
         </li>
         <li class="nav__item">
-            <a class="nav__button" href="/user/important"
+            <a class="nav__button <%= menuOption === 'important' ? 'active' : ''%>"" href="/user/important"
                 ><i class="fa-solid fa-star nav__icon"></i
                 ><span class="nav__text">Important</span></a
             >
         </li>
         <li class="nav__item">
-            <a class="nav__button" href="/user/planned"
+            <a class="nav__button <%= menuOption === 'planned' ? 'active' : ''%>"" href="/user/planned"
                 ><i class="fa-solid fa-calendar-days nav__icon"></i
                 ><span class="nav__text">Planned</span></a
             >
         </li>
         <li class="nav__item">
-            <a class="nav__button" href="/user/tasks-list"
+            <a class="nav__button <%= menuOption === 'tasksList' ? 'active' : ''%>"" href="/user/tasks-list"
                 ><i class="fa-solid fa-list-check nav__icon"></i
                 ><span class="nav__text">Tasks list</span></a
             >

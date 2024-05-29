@@ -5,8 +5,13 @@ import Task from '../models/task.js';
 
 export async function getTasks(findCondition) {
     return (await Task.find(findCondition)).map((task) => ({
+        _id: task._id,
         name: task.name,
-        completionDate: task.completionDate,
-        createdAt: moment.utc(task.createdAt).format('DD/M/YYYY'),
+        priority: task.priority,
+        category: task.category,
+        status: task.status,
+        dueToDate: task.dueToDate
+            ? moment(task.dueToDate).format('DD/M/YYYY, hh:mm a')
+            : 'not specified',
     }));
 }

@@ -3,11 +3,17 @@
 import moment from 'moment';
 import Task from '../models/task.js';
 import * as helpers from '../utils/helpers.js';
+import { validationResult } from 'express-validator';
 
 export const getAddTask = async (req, res, next) => {
     res.render('user/index', {
         pageTitle: 'ToDo | Add task',
         menuOption: 'addTask',
+        errorMessage: undefined,
+        oldInputs: {
+            email: '',
+            password: '',
+        },
     });
 };
 
@@ -16,8 +22,21 @@ export const postAddTask = async (req, res, next) => {
     const priority = req.body.task_priority;
     const category = req.body.task_category;
     const type = req.body.task_due_to ? 'planned' : 'normal';
-    let dueToDate = req.body.task_due_to;
-    console.log(name, priority, category, dueToDate);
+    const dueToDate = req.body.task_due_to;
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).render('user/index', {
+            pageTitle: 'Task Manager | Add task',
+            menuOption: 'addTask',
+            errorMessage: errors.array()[0].msg,
+            oldInputs: {
+                priority: priority,
+                category: category,
+                dueToDate: dueToDate,
+            },
+        });
+    }
 
     const task = new Task({
         name: name,
@@ -95,4 +114,17 @@ export const getAllTasks = async (req, res, next) => {
 
 export const logout = (req, res, next) => {
     res.redirect('/');
+};
+
+export const deleteTask = async (req, res, next) => {
+    const taskId = req.params.taskId;
+    const path = req.path.split('/')[1];
+    console.log(req.originalUrl);
+
+    try {
+        await Task.findByIdAndDelete(taskId);
+        return res.status(204).redirect(`user/${path}`);
+    } catch (error) {
+        console.log(error);
+    }
 };
