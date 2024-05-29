@@ -75,6 +75,8 @@ h1 {
 
 main {
   display: flex;
+  flex-direction: row;
+  width: 100%;
   height: calc(100vh - 60px);
 }
 
@@ -144,7 +146,7 @@ main {
 }
 
 .div-toolbar {
-  width: calc(100% - 40px);
+  width: 100%;
   height: 60px;
   margin: 5px 25px;
   display: flex;
@@ -250,6 +252,13 @@ main {
   overflow: auto;
   gap: 2px;
   margin: 0 20px;
+}
+
+.task-fields {
+  width: 100%;
+  height: 40px;
+  margin: 0 20px;
+  background-color: var(--color-background2);
 }
 
 .tasks-list::-webkit-scrollbar {
