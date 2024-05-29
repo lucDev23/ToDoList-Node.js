@@ -1,0 +1,24 @@
+<section class="description">
+    <h2 class="description__title">
+        <% switch (menuOption) { 
+            case 'addTask': %>
+                <i class="fa-solid fa-calendar-plus description__icon"></i> Add task 
+                <% break; 
+            case 'myDay': %>
+                <i class="fa-solid fa-sun description__icon"></i> My day 
+                <% break; 
+            case 'important': %>
+                <i class="fa-solid fa-star nav__icon description__icon"></i> Important
+                <% break; 
+            case 'planned': %>
+                <i class="fa-solid fa-calendar-days nav__icon description__icon"></i> Planned 
+                <% break; 
+            case 'tasksList': %>
+                <i class="fa-solid fa-list-check nav__icon description__icon"></i> Tasks list 
+                <% break; 
+        } %>
+    </h2>
+    <% if (menuOption === 'myDay') { %>
+        <p class="description__date"><%= todayDate %></p>
+    <% } %>
+</section>

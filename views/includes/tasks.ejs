@@ -1,0 +1,32 @@
+<section class="tasks">
+    <div class="tasks__content">
+        <div class="tasks__header tasks__grid">
+            <p class="tasks_header--item">Name</p>
+            <p class="tasks_header--item">Priority</p>
+            <p class="tasks_header--item">Category</p>
+            <p class="tasks_header--item">Status</p>
+            <p class="tasks_header--item">Due to</p>
+        </div>
+        <ul class="tasks__list">
+			<% for (let task of allTasks) { %>
+            <li class="tasks__item">
+                <div class="tasks__data tasks__grid">
+                    <h3 class="tasks__info tasks__name"><%= task.name %></h3>
+                    <p class="tasks__info tasks__priority"><%= task.priority %></p>
+                    <p class="tasks__info tasks__category"><%= task.category %></p>
+                    <p class="tasks__info tasks__status"><%= task.status %></p>
+                    <p class="tasks__info tasks__due-to"><%= task.dueToDate %></p>
+                    <div class="tasks__options">
+                        <a class="tasks__button" href=""
+                            ><i class="fa-solid fa-pen-to-square"></i
+                        ></a>
+                        <a class="tasks__button" href=""
+                            ><i class="fa-solid fa-trash"></i
+                        ></a>
+                    </div>
+                </div>
+            </li>
+            <% } %>
+        </ul>
+    </div>
+</section>

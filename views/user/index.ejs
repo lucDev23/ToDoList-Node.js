@@ -1,46 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
     <%- include('../includes/head.ejs') %>
-    <body class="body">
+    <body>
         <%- include('../includes/header.ejs') %>
-        <main>
+        <div class="layout">
             <%- include('../includes/menu.ejs') %>
-            <div class="div-main">
-                <%- include('../includes/info.ejs', {infoName: 'Add task', icon:
-                'fa-solid fa-calendar-plus'}) %>
-                <form
-                    class="div-task-info"
-                    action="/user/add-task"
-                    method="POST"
-                >
-                    <div class="new-task">
-                        <i class="fa-solid fa-plus"></i>
-                        <input
-                            type="text"
-                            name="taskName"
-                            id="input-task_name"
-                            placeholder="Task name"
-                            autocomplete="off"
-                            class="input-task_name"
-                        />
-                    </div>
-
-                    <div class="task-features">
-                        <label for="input-date"
-                            >Completion date:
-                            <input
-                                type="date"
-                                name="completionDate"
-                                id="input-date"
-                                autocomplete="off"
-                                class="input-date"
-                            />
-                        </label>
-                        <button type="submit" class="btn-add">Add</button>
-                    </div>
-                </form>
-                <ul class="tasks-list"></ul>
-            </div>
-        </main>
+            <main class="main">
+                <%- include('../includes/description.ejs') %> <%-
+                include('../includes/create-task.ejs') %>
+				
+            </main>
+        </div>
     </body>
 </html>

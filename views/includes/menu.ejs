@@ -1,54 +1,34 @@
-<aside class="aside-menu appearFromLeft">
-    <ul class="menu-options">
-        <li class="menu-item">
-            <a
-                id="btn-my_day"
-                class="btn-menu-option <%= menuOption === 'addTask' ? 'active' : '' %>"
-                href="/user/add-task"
+<nav class="nav">
+    <ul class="nav__list">
+        <li class="nav__item">
+            <a class="nav__button" href="/user/add-task"
+                ><i class="fa-solid fa-calendar-plus nav__icon"></i
+                ><span class="nav__text">Add task</span></a
             >
-                <i class="fa-solid fa-calendar-plus menu-icon"></i>
-                <p>Add task</p>
-            </a>
         </li>
-        <li class="menu-item">
-            <a
-                id="btn-my_day"
-                class="btn-menu-option <%= menuOption === 'myDay' ? 'active' : '' %>"
-                href="/user/my-day"
+        <li class="nav__item">
+            <a class="nav__button" href="/user/my-day"
+                ><i class="fa-solid fa-sun nav__icon"></i
+                ><span class="nav__text">My day</span></a
             >
-                <i class="fa-solid fa-sun menu-icon"></i>
-                <p>My day</p>
-            </a>
         </li>
-        <li class="menu-item">
-            <a
-                id="btn-important"
-                class="btn-menu-option <%= menuOption === 'important' ? 'active' : '' %>"
-                href="/user/important"
+        <li class="nav__item">
+            <a class="nav__button" href="/user/important"
+                ><i class="fa-solid fa-star nav__icon"></i
+                ><span class="nav__text">Important</span></a
             >
-                <i class="fa-solid fa-star menu-icon"></i>
-                <p>Important</p>
-            </a>
         </li>
-        <li class="menu-item">
-            <a
-                id="btn-planned"
-                class="btn-menu-option <%= menuOption === 'planned' ? 'active' : '' %>"
-                href="/user/planned"
+        <li class="nav__item">
+            <a class="nav__button" href="/user/planned"
+                ><i class="fa-solid fa-calendar-days nav__icon"></i
+                ><span class="nav__text">Planned</span></a
             >
-                <i class="fa-solid fa-calendar-days menu-icon"></i>
-                <p>Planned</p>
-            </a>
         </li>
-        <li class="menu-item">
-            <a
-                id="btn-task_lists"
-                class="btn-menu-option <%= menuOption === 'tasksList' ? 'active' : '' %>"
-                href="/user/tasks-list"
+        <li class="nav__item">
+            <a class="nav__button" href="/user/tasks-list"
+                ><i class="fa-solid fa-list-check nav__icon"></i
+                ><span class="nav__text">Tasks list</span></a
             >
-                <i class="fa-solid fa-list-check menu-icon"></i>
-                <p>Tasks list</p>
-            </a>
         </li>
     </ul>
-</aside>
+</nav>

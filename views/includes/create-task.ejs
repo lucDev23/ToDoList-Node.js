@@ -1,0 +1,61 @@
+<section class="create-task">
+    <form class="form__task" action="/user/add-task" method="POST">
+        <div class="input__div input__div-name">
+            <label class="create-task__label" for="task_name"
+                ><i class="fa-solid fa-plus"></i
+            ></label>
+            <input
+                class="create-task__input task__name"
+                id="task_name"
+                name="task_name"
+                type="text"
+                placeholder="Task name"
+				autocomplete="off"
+            />
+        </div>
+
+        <div class="input__div input__div-priority">
+            <label class="create-task__label" for="task-priority"></label
+				>Priority:
+			</label>
+            <select
+                class="create-task__input"
+                id="task-priority"
+                name="task_priority"
+            >
+				<option value=low">low</option>
+				<option value="medium">medium</option>
+                <option value="high">high</option>
+            </select>
+        </div>
+
+        <div class="input__div input__div-category">
+            <label class="create-task__label" for="task-category"
+                >Category:</label
+            >
+            <select
+                class="create-task__input"
+                id="task-category"
+                name="task_category"
+            >
+                <option value="general">general</option>
+                <option value="work">work</option>
+                <option value="personal">personal</option>
+                <option value="study">study</option>
+                <option value="health">health</option>
+            </select>
+        </div>
+
+        <div class="input__div input__div-date">
+            <label class="create-task__label" for="task_date">Due to: </label>
+            <input
+                class="create-task__input"
+                id="task_date"
+                type="datetime-local"
+				name="task_due_to"
+            />
+        </div>
+
+        <button class="create-task__button" href="">Add</button>
+    </form>
+</section>

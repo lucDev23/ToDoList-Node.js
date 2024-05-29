@@ -12,19 +12,20 @@ export const getAddTask = async (req, res, next) => {
 };
 
 export const postAddTask = async (req, res, next) => {
-    const name = req.body.taskName;
-    const completionDate = req.body.completionDate
-        ? moment(req.body.completionDate).format('DD/M/YYYY')
-        : moment().format('DD/M/YYYY');
+    const name = req.body.task_name;
+    const priority = req.body.task_priority;
+    const category = req.body.task_category;
+    const type = req.body.task_due_to ? 'planned' : 'normal';
+    let dueToDate = req.body.task_due_to;
+    console.log(name, priority, category, dueToDate);
 
     const task = new Task({
         name: name,
-        completionDate: completionDate,
+        priority: priority,
+        category: category,
+        dueToDate: dueToDate,
         userId: req.user._id,
-        type:
-            completionDate === moment().format('DD/M/YYYY')
-                ? 'normal'
-                : 'planned',
+        type: type,
     });
 
     try {

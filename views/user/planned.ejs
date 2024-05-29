@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <%- include('../includes/head.ejs') %>
-    <body class="body">
+    <body>
         <%- include('../includes/header.ejs') %>
-        <main>
+        <div class="layout">
             <%- include('../includes/menu.ejs') %>
-            <div class="div-main">
-                <%- include('../includes/info.ejs', {infoName: 'Planned', icon:
-                'fa-solid fa-calendar-days'}) %> <%-
-                include('../includes/taskList.ejs') %>
-            </div>
-        </main>
+            <main class="main">
+                <%- include('../includes/description.ejs') %> 
+				<%- include('../includes/tasks.ejs') %>
+            </main>
+        </div>
     </body>
 </html>

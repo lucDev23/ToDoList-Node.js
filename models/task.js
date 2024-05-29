@@ -9,30 +9,35 @@ const taskSchema = new Schema(
             type: String,
             required: true,
         },
-        finished: {
-            type: Boolean,
-            required: true,
-            default: false,
-        },
-        finishDate: Date,
-        completionDate: {
+        priority: {
             type: String,
-            default: moment().format('DD/M/YYYY'),
-        },
-        userId: {
-            type: Schema.Types.ObjectId,
-            ref: 'User',
             required: true,
+            enum: ['high', 'medium', 'low'],
+            default: 'low',
         },
-        important: {
-            type: Boolean,
-            default: false,
+        category: {
+            type: String,
+            required: true,
+            enum: ['general', 'work', 'personal', 'study', 'health'],
+            default: 'general',
         },
+        status: {
+            type: String,
+            required: true,
+            enum: ['pending', 'finished', 'expired'],
+            default: 'pending',
+        },
+        dueToDate: Date,
         type: {
             type: String,
             required: true,
             enum: ['normal', 'planned'],
             default: 'normal',
+        },
+        userId: {
+            type: Schema.Types.ObjectId,
+            ref: 'User',
+            required: true,
         },
     },
     { timestamps: true }
