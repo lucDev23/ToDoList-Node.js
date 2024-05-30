@@ -42,7 +42,7 @@ export const postAddTask = async (req, res, next) => {
         name: name,
         priority: priority,
         category: category,
-        dueToDate: dueToDate,
+        dueToDate: dueToDate ? moment(dueToDate).format('DD/M/YYYY') : null,
         userId: req.user._id,
         type: type,
     });
@@ -58,7 +58,7 @@ export const postAddTask = async (req, res, next) => {
 export const getDayTasks = async (req, res, next) => {
     try {
         const dayTasks = await helpers.getTasks({
-            completionDate: moment().format('DD/M/YYYY'),
+            dueToDate: moment().format('DD/M/YYYY'),
         });
 
         res.render('user/myDay', {
@@ -74,7 +74,7 @@ export const getDayTasks = async (req, res, next) => {
 
 export const getImportantTasks = async (req, res, next) => {
     try {
-        const importantTasks = await helpers.getTasks({ important: true });
+        const importantTasks = await helpers.getTasks({ priority: 'high' });
 
         res.render('user/important', {
             pageTitle: 'ToDo | Important Tasks',
@@ -118,12 +118,10 @@ export const logout = (req, res, next) => {
 
 export const deleteTask = async (req, res, next) => {
     const taskId = req.params.taskId;
-    const path = req.path.split('/')[1];
-    console.log(req.originalUrl);
 
     try {
         await Task.findByIdAndDelete(taskId);
-        return res.status(204).redirect(`user/${path}`);
+        res.status(200).json({ message: 'Success!' });
     } catch (error) {
         console.log(error);
     }

@@ -24,6 +24,6 @@ router.get('/tasks-list', userController.getAllTasks);
 
 router.get('/logout', userController.logout);
 
-router.get('/delete/:taskId', userController.deleteTask);
+router.delete('/delete/:taskId', userController.deleteTask);
 
 export default router;

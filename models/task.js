@@ -27,7 +27,7 @@ const taskSchema = new Schema(
             enum: ['pending', 'finished', 'expired'],
             default: 'pending',
         },
-        dueToDate: Date,
+        dueToDate: String,
         type: {
             type: String,
             required: true,
