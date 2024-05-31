@@ -277,7 +277,7 @@ body {
 
 .tasks__grid {
   display: grid;
-  grid-template-columns: minmax(200px, auto) repeat(3, 100px) 150px 100px;
+  grid-template-columns: minmax(200px, auto) repeat(3, 100px) 170px 100px;
   align-items: center;
 }
 
@@ -344,4 +344,119 @@ body {
 
 .tasks__button:hover {
   color: var(--color-light-purple);
+}
+
+/* EDIT TASK STYLES */
+
+.edit {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: grid;
+  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.edit__content {
+  place-self: center;
+  width: 400px;
+  background: var(--color-light-grey);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 2px;
+  box-shadow: 0px 0px 10px #333;
+  user-select: none;
+}
+
+.edit__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  place-self: end;
+  background-color: transparent;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--color-light-purple);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.edit__close i {
+  font-size: 24px;
+  text-align: center;
+  color: var(--color-light-purple);
+  transition: transform 0.3s ease;
+  border: none;
+  outline: none;
+}
+
+.edit__close i:hover {
+  transform: rotate(90deg);
+}
+
+.edit__form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form__elements {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.edit__input-group {
+  border: 2px solid var(--color-light-purple-2);
+  border-radius: 2px;
+  box-shadow: 0px 0px 2px #333;
+  padding: 5px;
+  display: flex;
+  gap: 5px;
+}
+
+.edit__input-group label,
+.edit__input-group input,
+.edit__input-group select {
+  background-color: transparent;
+  font-size: 1.2rem;
+  border: none;
+  outline: none;
+  font-weight: 500;
+  color: var(--color-light-purple);
+  cursor: pointer;
+}
+
+.edit__input-group label {
+  color: #222;
+  cursor: default;
+}
+
+.input__name {
+  width: 100%;
+}
+
+.edit__submit {
+  margin: 20px;
+  padding: 0 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  align-self: center;
+  background-color: var(--color-light-purple);
+  color: var(--color-light-two);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.edit__submit:hover {
+  transform: scale(1.1);
 }

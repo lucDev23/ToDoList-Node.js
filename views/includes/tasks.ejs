@@ -17,7 +17,7 @@
                     <p class="tasks__info tasks__status"><%= task.status %></p>
                     <p class="tasks__info tasks__due-to"><%= task.dueToDate %></p>
                     <div class="tasks__options">
-                        <a class="tasks__button" href=""
+                        <a class="tasks__button" onclick="editTask(this)"
                             ><i class="fa-solid fa-pen-to-square"></i
                         ></a>
 						<input type="hidden" value="<%= task._id %>" name="taskId">

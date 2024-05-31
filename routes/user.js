@@ -26,4 +26,6 @@ router.get('/logout', userController.logout);
 
 router.delete('/delete/:taskId', userController.deleteTask);
 
+router.post('/edit/:taskId', userController.postEditTask);
+
 export default router;

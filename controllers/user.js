@@ -42,7 +42,9 @@ export const postAddTask = async (req, res, next) => {
         name: name,
         priority: priority,
         category: category,
-        dueToDate: dueToDate ? moment(dueToDate).format('DD/M/YYYY') : null,
+        dueToDate: dueToDate
+            ? moment(dueToDate).format('DD/MM/YYYY - hh:mm a')
+            : null,
         userId: req.user._id,
         type: type,
     });
@@ -122,6 +124,34 @@ export const deleteTask = async (req, res, next) => {
     try {
         await Task.findByIdAndDelete(taskId);
         res.status(200).json({ message: 'Success!' });
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const postEditTask = async (req, res, next) => {
+    const taskId = req.body.taskId;
+    const name = req.body.task_name;
+    const priority = req.body.task_priority;
+    const category = req.body.task_category;
+    const status = req.body.task_status;
+    const dueToDate = req.body.task_due_to;
+
+    try {
+        await Task.findByIdAndUpdate(taskId, {
+            name: name,
+            priority: priority,
+            category: category,
+            status: status,
+            dueToDate: dueToDate
+                ? moment(dueToDate).format('DD/MM/YYYY - hh:mm a')
+                : null,
+        });
+        const task = await Task.findById(taskId);
+        return res.status(200).json({
+            message: 'Tarea actualizada correctamente',
+            updatedTask: task,
+        });
     } catch (error) {
         console.log(error);
     }

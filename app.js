@@ -6,6 +6,7 @@ import bodyParser from 'body-parser';
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import mongoose from 'mongoose';
+import multer from 'multer';
 
 // ROUTES
 import mainRoutes from './routes/main.js';
@@ -16,6 +17,7 @@ import User from './models/user.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+const upload = multer();
 
 const app = express();
 
@@ -24,6 +26,7 @@ app.set('views', 'views');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(upload.none());
 
 app.use(async (req, res, next) => {
     if (req.user) {

@@ -10,8 +10,6 @@ export async function getTasks(findCondition) {
         priority: task.priority,
         category: task.category,
         status: task.status,
-        dueToDate: task.dueToDate
-            ? moment(task.dueToDate).format('DD/M/YYYY, hh:mm a')
-            : 'not specified',
+        dueToDate: task.dueToDate || 'not specified',
     }));
 }
