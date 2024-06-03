@@ -27,7 +27,7 @@ export const postAddTask = async (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).render('user/index', {
-            pageTitle: 'Task Manager | Add task',
+            pageTitle: 'ToDo | Add task',
             menuOption: 'addTask',
             errorMessage: errors.array()[0].msg,
             oldInputs: {
@@ -62,6 +62,7 @@ export const getDayTasks = async (req, res, next) => {
     const regex = new RegExp(`^${datePrefix}`);
     try {
         const dayTasks = await helpers.getTasks({
+            userId: req.user._id,
             dueToDate: regex,
         });
 
@@ -78,7 +79,10 @@ export const getDayTasks = async (req, res, next) => {
 
 export const getImportantTasks = async (req, res, next) => {
     try {
-        const importantTasks = await helpers.getTasks({ priority: 'high' });
+        const importantTasks = await helpers.getTasks({
+            userId: req.user._id,
+            priority: 'high',
+        });
 
         res.render('user/important', {
             pageTitle: 'ToDo | Important Tasks',
@@ -92,7 +96,10 @@ export const getImportantTasks = async (req, res, next) => {
 
 export const getPlannedTasks = async (req, res, next) => {
     try {
-        const plannedTasks = await helpers.getTasks({ type: 'planned' });
+        const plannedTasks = await helpers.getTasks({
+            userId: req.user._id,
+            type: 'planned',
+        });
 
         res.render('user/planned', {
             pageTitle: 'ToDo | Planned tasks',
@@ -104,7 +111,7 @@ export const getPlannedTasks = async (req, res, next) => {
 
 export const getAllTasks = async (req, res, next) => {
     try {
-        const allTasks = await helpers.getTasks({});
+        const allTasks = await helpers.getTasks({ userId: req.user._id });
 
         res.render('user/tasksList', {
             pageTitle: 'ToDo | Tasks list',
@@ -117,7 +124,10 @@ export const getAllTasks = async (req, res, next) => {
 };
 
 export const logout = (req, res, next) => {
-    res.redirect('/');
+    req.session.destroy((err) => {
+        console.log(err);
+        res.redirect('/');
+    });
 };
 
 export const deleteTask = async (req, res, next) => {
@@ -151,7 +161,6 @@ export const postEditTask = async (req, res, next) => {
         });
         const task = await Task.findById(taskId);
         return res.status(200).json({
-            message: 'Tarea actualizada correctamente',
             updatedTask: task,
         });
     } catch (error) {

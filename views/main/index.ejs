@@ -9,40 +9,60 @@
             src="https://kit.fontawesome.com/de28e9df45.js"
             crossorigin="anonymous"
         ></script>
-        <script defer src="/assets/js/main-script.js"></script>
     </head>
     <body class="body">
-        <header>
+        <header class="header">
             <nav class="nav">
-                <div class="div-auth">
-                    <a class="button-auth" href="/auth/login">
+                <div class="nav__content">
+                    <a
+                        class="nav__button nav__button--signin"
+                        href="/auth/login"
+                    >
                         <i class="fa-solid fa-right-to-bracket"></i>
                         Sign in
                     </a>
-                    <a class="button-auth" href="/auth/signup"> Sign up </a>
+                    <a
+                        class="nav__button nav__button--signup"
+                        href="/auth/signup"
+                        >Sign up</a
+                    >
                 </div>
             </nav>
         </header>
-        <hr class="separator" />
         <main class="main">
-            <div class="div-title">
-                <img src="/images/checkImg.png" alt="Check tick image" />
-                <h1 class="h1">
-                    <span class="span-task">LuDev</span
-                    ><span class="span-manager">ToDo</span>
-                </h1>
-            </div>
-            <div class="image-left">
-                <img src="/images/man-pc.png" alt="Black and white man image" />
-            </div>
-            <div class="image-right">
-                <img
-                    src="/images/woman-pc.png"
-                    alt="Black and white women image"
-                />
+            <div class="main__content">
+                <div class="main__title-container">
+                    <img
+                        class="main__title-image"
+                        src="/images/checkImg.png"
+                        alt="Check tick image"
+                    />
+                    <h1 class="main__title">
+                        <span class="main__title-span main__title-span--task"
+                            >LuDev</span
+                        >
+                        <span class="main__title-span main__title-span--manager"
+                            >ToDo</span
+                        >
+                    </h1>
+                </div>
+                <div class="main__image-container">
+                    <img
+                        class="main__image main__image--left"
+                        src="/images/man-pc.png"
+                        alt="Black and white man image"
+                    />
+                </div>
+                <div class="main__image-container main__image-container--right">
+                    <img
+                        class="main__image main__image--right"
+                        src="/images/woman-pc.png"
+                        alt="Black and white woman image"
+                    />
+                </div>
             </div>
         </main>
-        <footer>
+        <footer class="footer">
             <!-- Footer content  -->
         </footer>
     </body>

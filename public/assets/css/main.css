@@ -1,134 +1,127 @@
-@import url('https://fonts.cdnfonts.com/css/open-sauce-one');
 @import url('https://fonts.cdnfonts.com/css/tajawal');
 
 :root {
-  --color-lightGrey: #d3d6cf;
   --color-grey: #a9aca9;
-  --color-font: #2f2235;
-  --color-background3: #f8f8f3;
-  --color-lightPurple: #60495a;
+  --color-light-grey: #d3d6cf;
+  --color-dark-purple: #2f2235;
   --color-purple: #3f3244;
+  --color-light-purple: #60495a;
+  --color-light-purple-2: #7b6676;
+  --color-light: #dad5d8;
+  --color-light-two: #f6f6f6;
+  --color-light-three: #ffffffb2;
 }
 
 * {
   font-family: 'Tajawal', sans-serif;
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
-  padding: 0px;
-  margin: 0px;
 }
 
 .body {
-  background-color: var(--color-lightGrey);
-  user-select: none;
+  background-color: var(--color-light-grey);
+  width: 100%;
+  height: calc(100vh - 64px);
   overflow: hidden;
+}
+
+.header {
+  background-color: var(--color-purple);
+  border-bottom: 4px solid var(--color-dark-purple);
 }
 
 .nav {
   height: 60px;
-  background-color: var(--color-grey);
   display: flex;
   justify-content: right;
   align-items: center;
   padding: 5px 50px;
-  transition: padding 0.3s ease;
 }
 
-.div-auth {
+.nav__content {
   display: flex;
-  gap: 5px;
+  gap: 10px;
 }
 
-.button-auth {
+.nav__button {
   width: 100px;
   height: 40px;
   padding: 8px 12px;
   border: none;
   border-radius: 5px;
-  text-align: center;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  color: white;
-  background-color: var(--color-lightPurple);
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.button-auth:hover {
-  background-color: var(--color-purple);
-}
-
-.button-auth:focus {
-  outline: none;
-  box-shadow: none;
-}
-
-.separator {
-  border: none;
-  height: 2px;
-  background-color: var(--color-lightPurple);
-}
-
-.main {
-  height: calc(100vh - 62px);
-  display: flex;
-  justify-content: center;
-  align-items: start;
-}
-
-.div-title {
-  width: 450px;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--color-dark-purple);
+  background-color: var(--color-light-two);
+  text-decoration: none;
+}
+
+.nav__button:hover {
+  background-color: var(--color-light-grey);
+}
+
+.main {
+  height: 100%;
+  display: grid;
+}
+
+.main__content {
+  height: 100%;
+  width: 70%;
+  place-self: center;
+}
+
+.main__title-container {
+  grid-column: span 2;
+  justify-content: center;
+  align-items: center;
+  display: flex;
   flex-direction: column;
-  transition: top 0.3s ease;
 }
 
-.div-title img {
-  width: 150px;
+.main__title-image {
+  width: 170px;
 }
 
-.h1 {
-  line-height: 1.4;
+.main__title {
+  font-size: 5rem;
+  line-height: 0.9;
 }
 
-.h1 span {
-  font-size: 80px;
+.main__title-span--task {
+  color: var(--color-light-purple);
 }
 
-.span-task {
-  color: var(--color-lightPurple);
-}
-
-.span-manager {
+.main__title-span--manager {
   color: var(--color-purple);
 }
 
-.image-left {
-  position: absolute;
-  top: 35%;
-  left: 15%;
-  animation: appearFromLeft 2s ease;
+.main__image-container {
+  max-width: fit-content;
 }
 
-.image-left img {
+.main__image {
   width: 500px;
-  position: relative;
-  top: 50%;
 }
 
-.image-right {
-  position: absolute;
-  top: 36%;
+.main__image--right {
+  top: 40%;
   right: 10%;
-  animation: appearFromRight 2s ease;
+  position: absolute;
+  animation: appearFromRight 1.3s normal;
 }
 
-.image-right img {
-  width: 500px;
-  position: relative;
-  top: 51%;
+.main__image--left {
+  top: 40%;
+  left: 15%;
+  position: absolute;
+  animation: appearFromLeft 1s ease;
 }
 
 @keyframes appearFromLeft {
