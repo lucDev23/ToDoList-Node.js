@@ -144,6 +144,10 @@ const editTask = async (button) => {
                     taskStatus.textContent = updatedTask.status;
                     taskDate.textContent = updatedTask.dueToDate;
 
+                    if (window.location.pathname === '/user/my-day') {
+                        checkDate(taskElement, updatedTask.dueToDate);
+                    }
+
                     document.querySelector('.edit').remove();
                 } else {
                     console.error('Error al actualizar la tarea');
@@ -175,4 +179,12 @@ function parseDateString(dateString) {
     const [hour, minutes] = timePart.split(':');
 
     return `${year}-${month}-${day}T${hour}:${minutes.split(' ')[0]}`;
+}
+
+function checkDate(item, date) {
+    const todayDate = new Date().toDateString().split(' ')[2];
+    const day = date.split('/')[0];
+    if (day !== todayDate) {
+        item.remove();
+    }
 }

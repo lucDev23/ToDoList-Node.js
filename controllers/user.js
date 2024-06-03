@@ -58,9 +58,11 @@ export const postAddTask = async (req, res, next) => {
 };
 
 export const getDayTasks = async (req, res, next) => {
+    const datePrefix = moment().format('DD/MM/YYYY');
+    const regex = new RegExp(`^${datePrefix}`);
     try {
         const dayTasks = await helpers.getTasks({
-            dueToDate: moment().format('DD/M/YYYY'),
+            dueToDate: regex,
         });
 
         res.render('user/myDay', {
