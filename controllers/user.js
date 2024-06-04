@@ -7,7 +7,7 @@ import { validationResult } from 'express-validator';
 
 export const getAddTask = async (req, res, next) => {
     res.render('user/index', {
-        pageTitle: 'ToDo | Add task',
+        pageTitle: 'ToDo | Add Task',
         menuOption: 'addTask',
         errorMessage: undefined,
         oldInputs: {
@@ -27,7 +27,7 @@ export const postAddTask = async (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).render('user/index', {
-            pageTitle: 'ToDo | Add task',
+            pageTitle: 'ToDo | Add Task',
             menuOption: 'addTask',
             errorMessage: errors.array()[0].msg,
             oldInputs: {
@@ -67,7 +67,7 @@ export const getDayTasks = async (req, res, next) => {
         });
 
         res.render('user/myDay', {
-            pageTitle: 'ToDo | My day',
+            pageTitle: 'ToDo | My Day',
             menuOption: 'myDay',
             todayDate: moment().format('dddd, MMMM DD'),
             allTasks: dayTasks,
@@ -102,7 +102,7 @@ export const getPlannedTasks = async (req, res, next) => {
         });
 
         res.render('user/planned', {
-            pageTitle: 'ToDo | Planned tasks',
+            pageTitle: 'ToDo | Planned Tasks',
             allTasks: plannedTasks,
             menuOption: 'planned',
         });
@@ -114,7 +114,7 @@ export const getAllTasks = async (req, res, next) => {
         const allTasks = await helpers.getTasks({ userId: req.user._id });
 
         res.render('user/tasksList', {
-            pageTitle: 'ToDo | Tasks list',
+            pageTitle: 'ToDo | Tasks List',
             allTasks: allTasks,
             menuOption: 'tasksList',
         });
@@ -157,7 +157,7 @@ export const postEditTask = async (req, res, next) => {
             status: status,
             dueToDate: dueToDate
                 ? moment(dueToDate).format('DD/MM/YYYY - hh:mm a')
-                : null,
+                : 'not specified',
         });
         const task = await Task.findById(taskId);
         return res.status(200).json({

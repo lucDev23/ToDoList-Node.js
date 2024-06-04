@@ -85,6 +85,13 @@ function toggleMenu() {
     asideMenu.classList.toggle('hidden');
 }
 
+const taskDate = document.getElementById('task_date');
+if (taskDate) {
+    taskDate.addEventListener('click', function () {
+        this.showPicker();
+    });
+}
+
 const deleteTask = async (button) => {
     const taskId = button.parentNode.querySelector('[name=taskId]').value;
 

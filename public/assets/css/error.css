@@ -1,0 +1,60 @@
+@import url('https://fonts.cdnfonts.com/css/tajawal');
+
+:root {
+  --color-grey: #a9aca9;
+  --color-light-grey: #d3d6cf;
+  --color-dark-purple: #2f2235;
+  --color-purple: #3f3244;
+  --color-light-purple: #60495a;
+  --color-light-purple-2: #7b6676;
+  --color-light: #dad5d8;
+  --color-light-two: #f6f6f6;
+  --color-light-three: #ffffffb2;
+}
+
+* {
+  font-family: 'Tajawal', sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.body {
+  background-color: var(--color-light-grey);
+  width: 100%;
+  height: calc(100vh - 64px);
+  overflow: hidden;
+  display: grid;
+}
+
+.body__content {
+  place-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-dark-purple);
+}
+
+.body__title {
+  font-size: 10rem;
+}
+
+.body__icon {
+  font-size: 6rem;
+}
+
+.body__text {
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.body__image {
+  height: 300px;
+  /* border: 1px solid black; */
+}
+
+.body__anchor {
+  font-size: 2rem;
+  color: var(--color-dark-purple);
+}

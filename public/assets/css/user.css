@@ -329,6 +329,7 @@ body {
 
 .tasks__name {
   justify-self: left;
+  word-break: break-all;
 }
 
 .tasks__button {

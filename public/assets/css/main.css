@@ -114,32 +114,10 @@
   top: 40%;
   right: 10%;
   position: absolute;
-  animation: appearFromRight 1.3s normal;
 }
 
 .main__image--left {
   top: 40%;
   left: 15%;
   position: absolute;
-  animation: appearFromLeft 1s ease;
-}
-
-@keyframes appearFromLeft {
-  0% {
-    left: -100%;
-  }
-
-  100% {
-    left: 15%;
-  }
-}
-
-@keyframes appearFromRight {
-  0% {
-    right: -100%;
-  }
-
-  100% {
-    right: 10%;
-  }
 }

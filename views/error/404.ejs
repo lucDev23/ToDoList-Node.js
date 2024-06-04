@@ -3,9 +3,23 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/assets/css/error.css">
+	<script
+            src="https://kit.fontawesome.com/de28e9df45.js"
+            crossorigin="anonymous"
+        ></script>
 	<title><%= pageTitle %></title>
 </head>
-<body>
-	<h1>Page not found</h1>
+<body class="body">
+	<div class="body__content">
+		<!-- <i class="fa-solid fa-circle-exclamation body__icon"></i> -->
+		<h1 class="body__title">404</h1>
+		<!-- <i class="fa-solid fa-bug body__icon"></i> -->
+		<div class="image__container">
+			<img class="body__image" src="/images/404-image.png" alt="">
+		</div>
+		<p class="body__text">Page not found</p>
+		<a class="body__anchor" href="/">Go main page</a>
+	</div>
 </body>
 </html>

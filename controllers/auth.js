@@ -7,7 +7,7 @@ import validator from 'validator';
 
 export const getLogin = (req, res, next) => {
     res.render('auth/login', {
-        pageTitle: 'ToDo | Sign in',
+        pageTitle: 'ToDo | Sign In',
         errorMessage: undefined,
         oldInputs: {
             email: '',
@@ -18,7 +18,7 @@ export const getLogin = (req, res, next) => {
 
 export const getSignup = (req, res, next) => {
     res.render('auth/signup', {
-        pageTitle: 'ToDo | Sign up',
+        pageTitle: 'ToDo | Sign Up',
         errorMessage: undefined,
         oldInputs: {
             email: '',
@@ -63,6 +63,7 @@ export const postLogin = async (req, res, next) => {
         const passwordMatch = await bcrypt.compare(password, user.password);
         if (passwordMatch) {
             req.session.user = user;
+            req.session.loggedIn = true;
             await req.session.save();
             return res.redirect('/user/add-task');
         }
@@ -106,6 +107,7 @@ export const postSignup = async (req, res, next) => {
         });
         await user.save();
         req.session.user = user;
+        req.session.loggedIn = true;
         await req.session.save();
         res.redirect('/user/add-task');
     } catch (error) {
